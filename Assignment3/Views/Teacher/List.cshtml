@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Assignment3.Models.Teacher>
+@{
+    ViewBag.Title = "List";
+}
+<div id="containerlist">
+
+
+    <nav>
+        <a class="navlink" href="/Teacher/New">New Teacher</a>
+    </nav>
+    <h2>List of Teachers</h2>
+    <form action="/Teacher/List" method="GET">
+        <input type="text" name="SearchKey" />
+        <input type="submit" value="Search" />
+    </form>
+    <form action="/Teacher/List" method="GET">
+    </form>
+    @foreach (Assignment3.Models.Teacher teacher in Model)
+    {
+        <div class="listitem row">
+            <div class="col-md-12"><a href="/Teacher/Show/@teacher.employeenumber">@teacher.teacherfname @teacher.teacherlname</div>
+        </div>
+    }
+</div>

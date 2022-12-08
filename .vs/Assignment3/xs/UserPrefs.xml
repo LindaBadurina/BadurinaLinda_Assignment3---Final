@@ -1,0 +1,41 @@
+﻿<Properties StartupConfiguration="{2CC9217D-2C68-4B19-B205-14C76BE0873E}|Assignment3">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assignment3/Controllers/TeacherController.cs">
+    <Files>
+      <File FileName="Assignment3/schoodb.sql" Line="294" Column="3" />
+      <File FileName="Assignment3/Views/Teacher/List.cshtml" Line="7" Column="1" />
+      <File FileName="Assignment3/Views/Teacher/Show.cshtml" Line="7" Column="25" />
+      <File FileName="Assignment3/Controllers/TeacherController.cs" Line="28" Column="47" />
+      <File FileName="Assignment3/Controllers/TeacherDataController.cs" Line="62" Column="132" />
+      <File FileName="Assignment3/Models/Teacher.cs" Line="1" Column="1" />
+      <File FileName="Assignment3/Controllers/HomeController.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Assignment3" expanded="True">
+            <Node name="Assignment3" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True">
+                  <Node name="Microsoft.NETCore.App" selected="True" />
+                </Node>
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Properties" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Assignment3 PreferredExecutionTarget="/Applications/Google Chrome.app" />
+</Properties>
