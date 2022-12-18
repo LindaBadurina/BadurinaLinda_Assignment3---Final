@@ -1,0 +1,42 @@
+﻿@model Assignment3.Models.Teacher
+@{
+    ViewBag.Title = "Update";
+}
+<h2>Update</h2>
+
+<!--Text boxes prompting the user to input a teacher's first name, last name, employee number, hire date, and salary, in order to update the selected teacher.
+    Once the "Update Teacher" button is clicked, the List view is returned.-->
+<form method="POST" action="/Teacher/Update/@Model.teacherid">
+    <nav>
+        <a class="navlink" href="/Teacher/Show/@Model.teacherid">Back</a>
+    </nav>
+
+    <div>
+        <label for="teacherfname">First name:</label>
+        <input type="text" id="teacherfname" name="teacherfname"
+               value="@Model.teacherfname" />
+    </div>
+    <div>
+        <label for="teacherlname">Last name:</label>
+        <input type="text" id="teacherlname" name="teacherlname"
+               value="@Model.teacherlname" />
+    </div>
+    <div>
+        <label for="employeenumber">Employee Number:</label>
+        <input type="text" id="employeenumber" name="employeenumber"
+               value="@Model.employeenumber" />
+    </div>
+    <div>
+        <label for="employeenumber">Teacher Hire Date:</label>
+        <input type="text" id="hiredate" name="hireDate"
+               value="@Model.hiredate" />
+    </div>
+    <div>
+        <label for="employeenumber">Salary:</label>
+        <input type="text" id="salary" name="salary"
+               value="@Model.salary" />
+    </div>
+    <div>
+        <input type="submit" value="Update Teacher" />
+    </div>
+</form>

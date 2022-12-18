@@ -15,7 +15,7 @@ namespace Assignment3.Controllers
             return View();
         }
         //GET : /Teacher/List
-        public ActionResult List(string SearchKey = null)
+        public ActionResult List(string SearchKey)
         {
             TeacherDataController cont = new TeacherDataController();
             IEnumerable<Teacher> Teachers = cont.ListTeachers(SearchKey);
@@ -23,13 +23,13 @@ namespace Assignment3.Controllers
         }
         //GET /Teacher/Show
         //Calls exactly how the instructor does it in her code, but it doesn't work, as I explained in the TeacherDataController comment.
-        public ActionResult Show(string id)
+        public ActionResult Show(int id)
         {
             TeacherDataController controller = new TeacherDataController();
-            Teacher NewAuthor = controller.FindTeacher(id);
+            Teacher SelectedTeacher = controller.FindTeacher(id);
 
 
-            return View(NewAuthor);
+            return View(SelectedTeacher);
         }
         //GET : /Teacher/DeleteConfirm/{id}
         //Launches the deleteconfirm.cshtml page to confirm teacher deletion
@@ -60,17 +60,58 @@ namespace Assignment3.Controllers
         //POST : /Teacher/Create
         //Creates a new teacher
         [HttpPost]
-        public ActionResult Create(string teacherfname, string teacherlname, string employeenumber)
-        {
-            return RedirectToAction("List");
+        public ActionResult Create(string teacherfname, string teacherlname, string employeenumber, DateTime hireDate, decimal salary)
+        { 
             Teacher newTeacher = new Teacher();
+            newTeacher.hiredate = hireDate;
+            newTeacher.salary = salary;
             newTeacher.employeenumber = employeenumber;
             newTeacher.teacherfname = teacherfname;
             newTeacher.teacherlname = teacherlname;
 
             TeacherDataController tdc = new TeacherDataController();
             tdc.AddTeacher(newTeacher);
+            return RedirectToAction("List");
+        }
 
+        //Routes to a dynamically generated "Teacher Update" page. Gathers information from the database.
+        //GET: /Author/Update/{id}
+        public ActionResult Update(int id)
+        {
+
+            TeacherDataController controller = new TeacherDataController();
+            Teacher SelectedTeacher = controller.FindTeacher(id);
+
+
+            return View(SelectedTeacher);
+        }
+        //Receives a POST request containing info about an existing teacher in the system, with new values. Conveys this info to the API, and
+        //redirects to the "Teacher Show" page of our updated teacher.
+        //As an example, 
+        //POST : Teacher/Update/1
+        //FORM DATA / POST DATA / REQUEST BODY
+        /*
+        {
+        "Teacherfname" : "Alexander",
+        "Teacherlname" : "Bennett",
+        "employeenumber" : "T378",
+        "hiredate" : "2016-08-05 00:00:00",
+        "salary" : "55.30"
+        }
+        */
+        [HttpPost]
+        public ActionResult Update(int id, string teacherfname, string teacherlname, string employeenumber, DateTime hireDate, decimal salary)
+        {
+            Teacher TeacherInfo = new Teacher();
+            TeacherInfo.hiredate = hireDate;
+            TeacherInfo.salary = salary;
+            TeacherInfo.employeenumber = employeenumber;
+            TeacherInfo.teacherfname = teacherfname;
+            TeacherInfo.teacherlname = teacherlname;
+
+            TeacherDataController tdc = new TeacherDataController();
+            tdc.UpdateTeacher(id, TeacherInfo);
+            return RedirectToAction("Show/" + id);
         }
     }
 }

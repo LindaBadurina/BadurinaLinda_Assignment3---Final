@@ -58,7 +58,7 @@ namespace Assignment3.Controllers
         }
         [Route("FindTeacher/{employeenumber}")]
         [HttpGet]
-        public Teacher FindTeacher(string employeenumber)
+        public Teacher FindTeacher(int teacherid)
         {
             /*This does **not** work. Why? I have no idea. There is virtually no difference between this code and the code that the instructor used in the
              provided videos. I hope that this actually works on the instructor's machine, and that the issue arises as a result of the two of us using two
@@ -75,7 +75,7 @@ namespace Assignment3.Controllers
             MySqlCommand cmd = Conn.CreateCommand();
 
             //SQL QUERY
-            cmd.CommandText = "Select * from teachers where employeenumber LIKE " + "\'employeenumber\'";
+            cmd.CommandText = "Select * from teachers where teacherid LIKE " + "\'teacherid\'";
 
             //Gather Result Set of Query into a variable
             MySqlDataReader ResultSet = cmd.ExecuteReader();
@@ -123,11 +123,34 @@ namespace Assignment3.Controllers
             MySqlConnection Con = School.AccessDatabase();
             Con.Open();
             MySqlCommand cmd = Con.CreateCommand();
-            cmd.CommandText = "insert into teachers (teacherfname, teacherlname, employeenumber)" +
-                "values(@teacherfname,@teacherlname,@employeenumber, CURRENT_DATE(), 60000)";
+            cmd.CommandText = "insert into teachers (teacherfname, teacherlname, employeenumber, hiredate, salary)" +
+                "values(@teacherfname,@teacherlname,@employeenumber, @hiredate, @salary)";
             cmd.Parameters.AddWithValue("@teacherfname", newTeacher.teacherfname);
             cmd.Parameters.AddWithValue("@teacherlname", newTeacher.teacherlname);
             cmd.Parameters.AddWithValue("@employeenumber", newTeacher.employeenumber);
+            cmd.Parameters.AddWithValue("@hiredate", newTeacher.hiredate);
+            cmd.Parameters.AddWithValue("@salary", newTeacher.salary);
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+            Con.Close();
+        }
+
+        //Updates a selected teacher with the values retrieved from the webpage textboxes when the Teacher Update form is submitted
+        //Non-deterministics
+        //Robust; works not only when the website calls it after having a user interact with the corresponding view, but works also when
+        //A used uses a command prompt to submit an http request to it directly. 
+        public void UpdateTeacher(int id, [FromBody]Teacher TeacherInfo)
+        {
+            MySqlConnection Con = School.AccessDatabase();
+            Con.Open();
+            MySqlCommand cmd = Con.CreateCommand();
+            cmd.CommandText = "update teachers set teacherfname=@teacherfname, teacherlname=@teacherlname, employeenumber=@employeenumber, hiredate=@hiredate, salary=@salary where teacherid = @teacherid";
+            cmd.Parameters.AddWithValue("@teacherfname", TeacherInfo.teacherfname);
+            cmd.Parameters.AddWithValue("@teacherlname",TeacherInfo.teacherlname);
+            cmd.Parameters.AddWithValue("@employeenumber", TeacherInfo.employeenumber);
+            cmd.Parameters.AddWithValue("@hiredate", TeacherInfo.hiredate);
+            cmd.Parameters.AddWithValue("@salary", TeacherInfo.salary);
+            cmd.Parameters.AddWithValue("@teacherid", id);
             cmd.Prepare();
             cmd.ExecuteNonQuery();
             Con.Close();
@@ -135,4 +158,3 @@ namespace Assignment3.Controllers
 
     }
 }
-

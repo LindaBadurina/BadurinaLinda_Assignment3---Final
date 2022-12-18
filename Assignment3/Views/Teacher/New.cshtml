@@ -1,7 +1,7 @@
 ﻿@{
         ViewBag.Title = "New";
  }
-<!--Text boxes prompting the user to input a teacher's first name, last name, and employee number, in order to create the new teacher. Once the "Create Teacher" button is clicked,
+<!--Text boxes prompting the user to input a teacher's first name, last name, employee number, hire date, and salary, in order to create the new teacher. Once the "Create Teacher" button is clicked,
     The List view is returned.-->>
 <h2>New Teacher</h2>
 <form method="POST" action="/Teacher/Create">
@@ -20,6 +20,14 @@
         <input type="text" id="employeenumber" name="employeenumber" />
     </div>
     <div>
-        <input type="submit" value="Create Teacher"/>
+        <label for="employeenumber">Teacher Hire Date:</label>
+        <input type="text" id="hiredate" name="hiredate" />
+    </div>
+    <div>
+        <label for="employeenumber">Salary:</label>
+        <input type="text" id="salary" name="salary" />
+    </div>
+    <div>
+        <input type="submit" value="Create Teacher" />
     </div>
 </form>

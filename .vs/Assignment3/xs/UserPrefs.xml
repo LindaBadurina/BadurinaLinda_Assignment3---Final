@@ -1,13 +1,15 @@
 ﻿<Properties StartupConfiguration="{2CC9217D-2C68-4B19-B205-14C76BE0873E}|Assignment3">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assignment3/Controllers/TeacherController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assignment3/Controllers/TeacherDataController.cs">
     <Files>
       <File FileName="Assignment3/schoodb.sql" Line="294" Column="3" />
-      <File FileName="Assignment3/Views/Teacher/List.cshtml" Line="7" Column="1" />
-      <File FileName="Assignment3/Views/Teacher/Show.cshtml" Line="7" Column="25" />
-      <File FileName="Assignment3/Controllers/TeacherController.cs" Line="28" Column="47" />
-      <File FileName="Assignment3/Controllers/TeacherDataController.cs" Line="62" Column="132" />
-      <File FileName="Assignment3/Models/Teacher.cs" Line="1" Column="1" />
+      <File FileName="Assignment3/Views/Teacher/List.cshtml" Line="5" Column="23" />
+      <File FileName="Assignment3/Views/Teacher/Show.cshtml" Line="10" Column="130" />
+      <File FileName="Assignment3/Controllers/TeacherController.cs" Line="54" Column="39" />
+      <File FileName="Assignment3/Controllers/TeacherDataController.cs" Line="105" Column="100" />
       <File FileName="Assignment3/Controllers/HomeController.cs" Line="1" Column="1" />
+      <File FileName="Assignment3/Views/Teacher/DeleteConfirm.cshtml" Line="5" Column="123" />
+      <File FileName="Assignment3/Views/Teacher/New.cshtml" Line="5" Column="31" />
+      <File FileName="Assignment3/Models/Teacher.cs" Line="18" Column="29" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,13 +17,17 @@
           <Node name="Assignment3" expanded="True">
             <Node name="Assignment3" expanded="True">
               <Node name="Dependencies" expanded="True">
-                <Node name="FrameworkReferences" expanded="True">
-                  <Node name="Microsoft.NETCore.App" selected="True" />
-                </Node>
+                <Node name="FrameworkReferences" expanded="True" />
                 <Node name="PackageDependencies" expanded="True" />
               </Node>
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="TeacherDataController.cs" selected="True" />
+              </Node>
+              <Node name="Models" expanded="True" />
               <Node name="Properties" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Teacher" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
