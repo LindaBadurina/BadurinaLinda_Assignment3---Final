@@ -1,3 +1,15 @@
+# Update 18/12/2022 - Part 3, Final Portion Added to Project
+
+The third part of my final assignment has been pushed to here. Hopefully everything's showing! I didn't do this for the second 
+part of the assignment because GitHub made me nervous, but I'm more confident with it and using it to make changes to a project/
+file.
+
+Also made some changes to Part 2 of the assignment that were noted by you.
+
+FindTeacher method now uses the Teacher ID instead of the Employee Number.
+
+AddTeacher now allows for Salary and Date.
+
 # BadurinaLinda_Assignment3Part2
 Part two of the final culmative assignment!
 
